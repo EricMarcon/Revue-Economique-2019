@@ -23,6 +23,8 @@ jobs:
           options(install.packages.check.source = "no")
           install.packages(c("memoiR", "rmdformats", "tinytex"))
           tinytex::install_tinytex()
+          tinytex::tlmgr_install("hyphen-french")
+          webshot::install_phantomjs()
         shell: Rscript {0}
       - name: Render Rmarkdown files
         run: |
