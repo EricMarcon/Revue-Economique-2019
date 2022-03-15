@@ -503,7 +503,7 @@ This is an effective number of sectors: if all sectors had a valence equal to th
 The value of the relative concentration can be seen in figure \@ref(fig:uC): it is equal to the ratio between the values of the valence profiles of the industry and the sector considered.
 For the chemical industry (C20), it varies from 1 (at order 0) to `r format(upC$y[which(upC$x==2)]/upC20$y[which(upC20$x==2)], digits=2)` at order 2: `r format(upC$y[which(upC$x==2)]/upC20$y[which(upC20$x==2)], digits=2)` effective valence sectors that of the C20 sector, i.e. `r format(upC20$y[which(upC20$x==2)], digits=2)` countries, would form an industry whose valence would be that observed for the European industry, $`r format(upC20$y[which(upC20$x==2)], digits=2)` ` = `r format(upC$y[which(upC$x==2)], digits=2)`$ effective countries.
 
-The concentration is less than 1 for the agro-food industry (C10): `r format(upC$y[which(upC$x==2)]/upC10$y[which(upC10$x==2)], digits=2)` = `r format(upC$y[which(upC10$x==2)], digits=2)` = `r format(upC$y[which(upC$x==2)], digits=2)` = `r format(upC$y[which(upC10$x==2)]/upC10$y[which(upC10$x==2)]/upC10$y[which(upC10$x==2)].
+The concentration is less than 1 for the food industry (C10): `r format(upC$y[which(upC$x==2)]/upC10$y[which(upC10$x==2)], digits=2)` = `r format(upC$y[which(upC10$x==2)], digits=2)` = `r format(upC$y[which(upC$x==2)], digits=2)` = `r format(upC$y[which(upC10$x==2)]/upC10$y[which(upC10$x==2)]/upC10$y[which(upC10$x==2)].
 In other words, the C10 sector is relatively dispersed.
 
 Relative concentration and absolute valence (figure \@ref(fig:uC)) are related: their product is the absolute valence of the whole of the sectors, taken as a reference.
