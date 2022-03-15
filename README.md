@@ -2,7 +2,7 @@
 
 This article was published in French:
 
-Marcon, E. (2019). Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie. Revue économique, 70(3), 305‑326. https://doi.org/10.3917/reco.703.0305
+Marcon, E. (2019). Mesure de la biodiversité et de la structuration spatiale de l’activité économique par l’entropie. Revue économique, 70(3), 305‑326.[doi:10.3917/reco.703.0305](https://doi.org/10.3917/reco.703.0300) 
 
 An English translation and the original text and code are in this repository.
 
