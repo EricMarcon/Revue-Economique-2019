@@ -23,7 +23,7 @@ abstract: >
 keywords: [entropie, nombres de Hill, diversité, valence, concentration, spécialisation]
 journalinfo: Revue économique
 archive: >
-  doi:10.3917/reco.703.0305
+  https://doi.org/10.3917/reco.703.0305
 url: https://EricMarcon.github.io/Revue-Economique-2019/
 github-repo: EricMarcon/Revue-Economique-2019
 lang: fr-FR

@@ -23,7 +23,7 @@ abstract: >
 keywords: [entropy, Hill numbers, diversity, valence, concentration, specialization]
 journalinfo: Revue Economique
 archive: >
-  doi:10.3917/reco.703.0305 (French published version)
+  https://doi.org/10.3917/reco.703.0305 (French published version)
 url: https://EricMarcon.github.io/Revue-Economique-2019/
 github-repo: EricMarcon/Revue-Economique-2019
 lang: en-US
