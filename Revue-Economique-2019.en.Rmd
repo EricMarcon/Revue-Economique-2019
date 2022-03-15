@@ -267,7 +267,7 @@ The relevance of entropy as a measure of diversity follows directly from this: a
 
 Many alternative information functions can be considered, including the most exotic ones like $I(p_s)=\cos({p_s \pi/2})$ [@Gregorius2014].
 
-Among them, three families of parametrizable functions have become established: the generalized entropy of the inequality literature [@Shorrocks1980], the entropy of @Renyi1961, which was widely used until the 2000s for the measurement of biodiversity, and, more recently, the HCDT entropy detailed here.
+Among them, three families of parametric functions have become established: the generalized entropy of the inequality literature [@Shorrocks1980], the entropy of @Renyi1961, which was widely used until the 2000s for the measurement of biodiversity, and, more recently, the HCDT entropy detailed here.
 
 @Tsallis1988 proposed a generalized entropy in statistical physics for systems that do not meet the properties required by Boltzmann theory. It had been defined by @Havrda1967 in cybernetics and then rediscovered, notably by @Daroczy1970 in information theory, hence its name, *HCDT* entropy (see @Mendes2008, page 451, for a complete history).
 
