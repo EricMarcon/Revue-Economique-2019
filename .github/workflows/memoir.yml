@@ -21,7 +21,7 @@ jobs:
         run: |
           options(pkgType = "binary")
           options(install.packages.check.source = "no")
-          install.packages(c("memoiR", "rmdformats", "tinytex"))
+          install.packages(c("memoiR", "rmdformats", "tinytex", "webshot"))
           tinytex::install_tinytex()
           tinytex::tlmgr_install("hyphen-french")
           webshot::install_phantomjs()
