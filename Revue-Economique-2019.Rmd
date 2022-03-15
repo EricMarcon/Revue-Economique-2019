@@ -21,9 +21,9 @@ abstract: >
   La décomposition de la diversité totale d'une distribution (la localisation globale en économie) en concentration ou spécialisation absolue et relative et en réplication, est présentée.
   L'ensemble fournit un cadre théorique complet et robuste pour mesurer la structuration spatiale en espace discret.
 keywords: [entropie, nombres de Hill, diversité, valence, concentration, spécialisation]
-journalinfo: Numéro spécial de la Revue économique
+journalinfo: Revue économique
 archive: >
-  La structuration de l’espace économique : quels apports d’une approche pluridisciplinaire ?
+  doi:10.3917/reco.703.0305
 url: https://EricMarcon.github.io/Revue-Economique-2019/
 github-repo: EricMarcon/Revue-Economique-2019
 lang: fr-FR
