@@ -1,5 +1,5 @@
 ![stability-wip](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)
-![rmarkdown](https://github.com/EricMarcon/EricMarcon/Revue-Economique-2019/workflows/rmarkdown/badge.svg)
+![rmarkdown](https://github.com/EricMarcon/Revue-Economique-2019/workflows/rmarkdown/badge.svg)
 
 This article was published in French:
 
