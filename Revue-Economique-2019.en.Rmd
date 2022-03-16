@@ -21,7 +21,7 @@ abstract: >
   The decomposition of the total diversity of a distribution (the global location in economics) into absolute and relative concentration or specialization and replication is presented.
   These methods provide a comprehensive and robust theoretical framework for measuring spatial structuring in discrete space.
 keywords: [entropy, Hill numbers, diversity, valence, concentration, specialization]
-journalinfo: Revue Economique
+journalinfo: Revue économique
 archive: >
   https://doi.org/10.3917/reco.703.0305 (French published version)
 url: https://EricMarcon.github.io/Revue-Economique-2019/
