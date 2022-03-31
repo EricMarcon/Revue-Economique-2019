@@ -134,7 +134,7 @@ The application of these methods to the measurement of spatial concentration and
 ## Similar issues and opposing concepts
 
 The methods presented here have been developed from the biodiversity literature.
-Ecologists need to measure the *diversity* of a community of living things, composed of several species whose numbers are known.
+Ecologists need to measure the *diversity* of a community of living things, composed of several species whose abundances are known.
 A less discussed question concerns the *valence* of species, i.e. for a given species the diversity of environments in which it is able to establish itself.
 
 This notion was formalized under the name of niche width by @Levins1968, in the sense that the ecological niche is the set of conditions necessary for the development and reproduction of a living being.
@@ -189,7 +189,7 @@ The data are available online at EuroStat [^2], in the file *SBS data by NUTS 2 
 
 [^2]: http://ec.europa.eu/eurostat/web/regions/data/database
 
-The nomenclature of economic sectors is the NACE (Statistical Classification of Economic Activities in the European Communities) in its revision 2. 
+The nomenclature of economic sectors is the NACE (Statistical Classification of Economic Activities in the European Community) in its revision 2. 
 Only the industrial sectors (NACE code: C) have been retained.
 Sectors C12 (Manufacture of tobacco products), C19 (Manufacture of coke and refined petroleum products), C21 (Manufacture of basic pharmaceutical products and pharmaceutical preparations) and C30 (Manufacture of other transport equipment) were removed because of missing data in major countries (e.g. C30 in Belgium).
 
@@ -199,10 +199,10 @@ The selection of the data is therefore a compromise to keep the essential inform
 After filtering, the data are presented in the form of a table (called a contingency table) whose `r nrow(ES02Cx)` rows are the industrial sectors and `r ncol(ES02Cx)` columns the selected countries.
 Each cell of the table contains the number of employees in the sector and the country considered, without missing data.
 
-The sectors are indicated by the letter $s$ and the countries by the letter $i$.
+The sectors are indexed by the letter $s$ and the countries by the letter $i$.
 The number of employees per sector and country is noted $n_{s,i}$.
 The marginal values are noted $n_i$ (the number of employees in country $i$, all sectors combined) and $n_s$ (the number in sector $s$, all countries combined).
-To simplify the writing, the level of aggregation corresponding to all sectors will be called "the industry" and that corresponding to all countries will be called "Europe": $n_s$ will thus be called the number of employees working in the $s$ sector in Europe.
+To simplify the writing, the level of aggregation corresponding to all sectors will be called "the industry" and that corresponding to all countries will be called "Europe": $n_s$ will thus be called the number of employees working in the sector $s$ in Europe.
 The total number of employees is $n=\sum_s{n_s}=\sum_i{n_i}$, equal to `r format(sum(ES02Cx), big.mark = ",")`.
 The relative sizes of the countries and sectors are shown in the Appendix.
 The probability that a randomly selected individual works in sector $s$ and country $i$ is denoted $p_{s,i}$ and estimated by his or her observed frequency $p_{s,i}=n_{s,i}/n$ (to lighten the notation, the empirical frequency is denoted as the theoretical probability rather than $\hat{p}_{s,i}$).
@@ -233,7 +233,7 @@ The results are noted $r_s$ where the index $s$ takes all possible values betwee
 The probability of obtaining $r_s$ is $p_s$, and $\mathbf{p_s}=(p_1,p_2,\dots,p_S)$ is the set (mathematically, the vector) of probabilities of obtaining each result.
 Obtaining the result $r_s$ is not very surprising if $p_s$ is large: it brings little additional information compared to the simple knowledge of probabilities.
 On the other hand, if the species $r_s$ is rare ($p_s$ is small), its result is surprising.
-The notion of information, defined by Shannon, is identical to that of surprise, more intuitive.
+The notion of information, defined by Shannon, is identical to that of surprise, which is more intuitive.
 We therefore define an information function, $I(p_s)$, decreasing as the probability increases, from $I(0)=+\infty$ (or possibly a strictly positive finite value) to $I(1)=0$ (the observation of a certain result brings no surprise). 
 
 Entropy is defined as the average of the information provided by all possible outcomes of the experiment.
@@ -246,8 +246,8 @@ $$H(\mathbf{p_s})=\sum_{s}{p_s I(p_s)}.$$
 ### Shannon's entropy
 
 Shannon used the information function $I(p_s)=-\ln{p_s}$ for its mathematical properties.
-It can be written as $I(p_s)=-\ln({1/p_s})$. 
-The inverse of the probability, $1/p_s$, will be called *rare*[^3]: a very rare species has a probability close to 0.
+It can be written as $I(p_s)=\ln({1/p_s})$. 
+The inverse of the probability, $1/p_s$, will be called *rarity*[^3]: a very rare species has a probability close to 0.
 
 [^3]: @Patil1982 use the term _rarity_ in the sense of _information_, but this definition has not been adopted in the later literature.
 
@@ -258,7 +258,7 @@ Its Greek etymology means *transformation* because the second principle concerns
 Boltzmann characterized the entropy of a complex system (a gas, whose each particle can have several possible states) in 1877 [@Sharp2015].
 @Shannon1948 finally showed that the number of possible states of a system is analogous to the number of messages of a chosen length that can be created by assembling the letters of an alphabet whose letter frequencies are fixed.
 Shannon's entropy is, except for a multiplicative constant, equal to Boltzmann's entropy normalized by the length of the message, of which it is independent.
-This fundamental property allows him to describe the complexity of a system not only by the possible number of its states, but more simply by the relative frequency of its components, giving birth to the theory of information.
+This fundamental property allows it to describe the complexity of a system not only by the possible number of its states, but more simply by the relative frequency of its components, giving birth to the theory of information.
 
 The relevance of entropy as a measure of diversity follows directly from this: a system is all the more diverse that it can have a large number of possible states or, equivalently, that it is difficult to predict the state in which it is, or that it has a high entropy.
 
@@ -269,7 +269,8 @@ Many alternative information functions can be considered, including the most exo
 
 Among them, three families of parametric functions have become established: the generalized entropy of the inequality literature [@Shorrocks1980], the entropy of @Renyi1961, which was widely used until the 2000s for the measurement of biodiversity, and, more recently, the HCDT entropy detailed here.
 
-@Tsallis1988 proposed a generalized entropy in statistical physics for systems that do not meet the properties required by Boltzmann theory. It had been defined by @Havrda1967 in cybernetics and then rediscovered, notably by @Daroczy1970 in information theory, hence its name, *HCDT* entropy (see @Mendes2008, page 451, for a complete history).
+@Tsallis1988 proposed a generalized entropy in statistical physics for systems that do not meet the properties required by Boltzmann theory. 
+It had been defined by @Havrda1967 in cybernetics and then rediscovered, notably by @Daroczy1970 in information theory, hence its name: *HCDT* entropy (see @Mendes2008, page 451, for a complete history).
 
 Its mathematical form is:
 $$ ^{q}H(\mathbf{p_s}) = \frac{1}{q-1}\left(1-\sum^S_{s=1}{p^q_s}\right),$$
@@ -294,7 +295,7 @@ A region is all the more specialized as its entropy is low.
 Three values of $q$ are particularly interesting:
 
 - $q=0$: entropy is richness, i.e., $S$, the number of species or sectors, minus 1;
-- $q=1$: the entropy is Shannon's entropy. In econometrics, $S-^{1}H$ is the Theil index;
+- $q=1$: the entropy is Shannon's. In econometrics, $S-^{1}H$ is the Theil index;
 - $q=2$: the entropy is @Simpson1949's biodiversity index, i.e. the probability that two randomly chosen individuals belong to a different species. In econometrics, its complement to 1, i.e. the probability that two individuals belong to the same sector, is the Herfindahl index, or Herfindahl-Hirschman [@Hirschman1964], which measures here specialization.
 
 Negative values of $q$ give a species a greater importance the rarer it is, whereas at $q=0$ all species contribute equally to the entropy (they are simply counted, whatever their probability).
@@ -309,10 +310,10 @@ Entropy has a physical meaning: it is a quantity of surprise; it is thus much mo
 However, with the exception of orders 0 and 2, the value of entropy has no intuitive interpretation.
 Hill numbers address this lack.
 
-The desire of @Hill1973 was to make diversity indices intelligible after @Hurlbert1971's noted paper entitled "The non-concept of specific diversity". 
+The desire of @Hill1973 was to make diversity indices intelligible after @Hurlbert1971's noted paper entitled "The non-concept of species diversity". 
 Hurlbert criticized the diversity literature for being too abstract and remote from biological realities, in particular by providing examples in which the order of communities was not the same according to the diversity index chosen.
 
-The number of Hill of order $q$ is the number of equiprobable species giving the same value of entropy as the observed distribution, in other words an *effective number* of species, also called *number equivalent*. 
+The Hill number of order $q$ is the number of equiprobable species giving the same value of entropy as the observed distribution, in other words an *effective number* of species, also called *number equivalent*. 
 The concept was rigorously defined by @Gregorius1991, after @Wright1931 who had first defined the effective size of a population in genetics: given a characteristic variable (here, entropy) depending only on a numerical variable (here, the number of species) in an ideal case (here, equiprobability of species), the effective number is the value of the numerical variable for which the characteristic variable is that of the data set. 
 
 Formally, they are simply the deformed exponential of the HCDT entropy [@Marcon2014a].
@@ -339,8 +340,8 @@ If this is not the case, the order relationship between the communities is well 
 
 ## The decomposition of entropy 
 
-The notion of diversity $\beta$ was introduced by @Whittaker1960 as the degree of differentiation of biological communities.
-The question addressed here is the decomposition of diversity from aggregate data (the diversity of economic sectors in Europe) to a more detailed level (by country).
+The notion of $\beta$ diversity was introduced by @Whittaker1960 as the degree of differentiation of biological communities.
+The question addressed here is the decomposition of diversity from aggregated data (the diversity of economic sectors in Europe) to a more detailed level (by country).
 The diversity of the most aggregated level was called $\gamma$ by Whittaker, the average diversity of the detailed levels $\alpha$, and the differentiation between the detailed levels $\beta$.
 It is clear that the $\gamma$ and $\alpha$ diversities are similar in nature: only the level of detail of the data differs.
 In contrast, the characterization of $\beta$ diversity has generated controversy [@Ellison2010a].
@@ -352,11 +353,11 @@ That of spatial concentration has remained limited to Theil's entropy [@Mori2005
 @Marcon2012a then interpreted the $\beta$ entropy as the additional information brought by the knowledge of the disaggregated distributions ($\mathbf{p_{s|i}}$ for each country $i$) in addition to that of the aggregated data ($\mathbf{p_{s}}$ for the whole of Europe), i.e. a relative entropy.
 The divergence of @Kullback1951 is well known to economists as Theil's relative entropy [@Conceicao2000].
 The difference between the first-order $gamma$ entropy and the average of the first-order entropies of the disaggregated distributions is the average of the corresponding Kullback-Leibler divergences [@Rao1985], referred to by statistical physicists as the "Jensen-Shannon divergence".
-@Marcon2014a generalized this result to all orders of the HCDT entropy: $\beta$ entropy is the average over all countries of the generalized Kullback-Leibler divergence between the $\mathbf{p_{s|i}}$ and $\mathbf{p_{s}}$ distributions, itself defined as the average over all sectors of the information gain brought by knowledge of the disaggregated distribution:
+@Marcon2014a generalized this result to all orders of the HCDT entropy: $\beta$ entropy is the average over all countries of the generalized Kullback-Leibler divergence between the $\mathbf{p_{s|i}}$ and $\mathbf{p_{s}}$ distributions, itself defined as the average over all sectors of the information gain brought by the knowledge of the disaggregated distribution:
 $$^{q}_{\beta}H(\mathbf{P})=\sum_{i}{p_i\sum_{s}{p_{s|i}[\ln_q{(1/p_{s|i})-\ln_q{(1/p_{s})]}}}}$$.
 
-Like $\gamma$ and $\alpha$ entropy, $\beta$ entropy can be transformed into an effective number which is the number of communities of the same weight, with no common species, that would have the same $\beta$ entropy as the actual communities.
-The diversity decomposition is multiplicative: $\gamma$ diversity is the product of $\alpha$ and $\beta$ diversities.
+Like $\gamma$ and $\alpha$ entropies, $\beta$ entropy can be transformed into an effective number which is the number of communities of the same weight, with no common species, that would have the same $\beta$ entropy as the actual communities.
+The decomposition of diversity is multiplicative: $\gamma$ diversity is the product of $\alpha$ and $\beta$ diversities.
 
 The complete decomposition is finally a product of effective numbers: the diversity of the assembly of several biological communities, called $\gamma$ diversity is an effective number of species; it is the product of the effective number of species per community ($\alpha$ diversity) by the effective number of communities ($\beta$ diversity).
 It will be applied in this article to the economy of the European countries: the effective number of economic sectors of Europe ($\gamma$) is the product of the average effective number of sectors per country ($\alpha$) by an effective number of countries ($\beta$).
@@ -375,23 +376,23 @@ We have seen that entropy can be used from both diversity and valence perspectiv
 The data are the same and can be represented in the contingency table whose rows represent, for example, the industrial sectors while the columns represent the countries, each cell of the table providing the abundance (a number of establishments or employees) of a sector in a country.
 
 The diversity of countries is calculated by treating each column of the table, the valence of sectors by treating each row.
-The diversity $^{q}D(\mathbf{p_s})$ of the whole of Europe (defined as the aggregation of the countries) is obtained, like the valence of the aggregated sectors $^{q}D(\mathbf{p_i})$, from the marginal probabilities
-The diversity $^{q}D(\mathbf{p_{s,i}})$ of the data set, all sectors and countries combined, is of great interest, especially theoretically for the Shannon entropy [@Faddeev1956; @Baez2011]: it is called joint diversity [@Gregorius2010].
+The diversity $^{q}D(\mathbf{p_s})$ of the whole of Europe (defined as the aggregation of the countries) is obtained, like the valence of the aggregated sectors $^{q}D(\mathbf{p_i})$, from the marginal probabilities.
+The diversity $^{q}D(\mathbf{p_{s,i}})$ of the data set, all sectors and countries combined, is of great interest, especially theoretically for Shannon's entropy [@Faddeev1956; @Baez2011]: it is called joint diversity [@Gregorius2010].
 
 The difference between the joint entropy and the sum of the marginal entropies (that of all sectors and that of all countries), $^{q}H(\mathbf{p_{s,i}})-^{q}H(\mathbf{p_{s}})-^{q}H(\mathbf{p_{i}})$, is called the mutual information.
 The Shannon entropy (but not the HCDT entropy of order different from 1) of two independent systems adds up: if country membership is independent of sector membership, i.e. if the probability $p_{s,i}$ is simply the product of the probabilities $p_{s}$ and $p_{i}$, then the mutual Shannon information is zero.
 In other words, the mutual information is the additional entropy brought by the non-independence of the rows and columns of the array.
-It is equal to the two entropies $\beta$, the one of the diversity and the one of the valence.
+It is equal to the both $\beta$ entropies, that of the diversity and that of the valence.
 These properties are only valid for the Shannon entropy.
 They have been used in different forms in the literature [for example @Cutrini2009; @Chao2013; @Haedo2017].
 
-Regardless of the order considered, @Gregorius2010 showed that joint diversity provides important additional information about the distribution of abundances that is not captured by the diversity decomposition already presented.
+Regardless of the order considered, @Gregorius2010 showed that joint diversity provides important additional information about the distribution of abundances that is not captured by the decomposition of diversity already presented.
 The example of biodiversity is used here to simplify the presentation.
-The $alpha$ diversity is the number of equiprobable species in a typical community.
-The $\beta$ diversity is the number of these typical communities, equiprobable and without common species.
-The $\gamma$ diversity is the product of the two previous ones, a number of equiprobable species resulting from the assembly of the communities.
+$alpha$ diversity is the number of equiprobable species in a typical community.
+$\beta$ diversity is the number of these typical communities, equiprobable and without common species.
+$\gamma$ diversity is the product of the two previous ones, a number of equiprobable species resulting from the assembly of the communities.
 Each species appears only in one community in this representation.
-The identical replication of the communities does not modify the diversities $\alpha$, $\beta$ and $\gamma$, it is actually a property required for diversity measures [@Hill1973].
+The identical replication of the communities does not modify the $\alpha$, $\beta$ and $\gamma$ diversities: this property is actually required for diversity measures [@Hill1973].
 In contrast, joint diversity is multiplied by the number of replications [@Marcon2014d]: the ratio of joint diversity to $\beta$ diversity measures replication as an effective number, the number of replications of communities.
 
 Replication has few practical applications in ecology because the available data are typically samples of the communities being studied.
@@ -405,17 +406,17 @@ The methods presented so far, from physics and statistical ecology, have interes
 Two questions will be addressed: the measurement of the spatial concentration of economic activities and the decomposition of joint diversity.
 
 The spatial concentration of economic activities is an important topic in the literature [@Combes2015].
-The first step in understanding the economic phenomena involved is the characterization of the concentration.
+The first step in understanding the economic phenomena involved is the characterization of concentration.
 A major step was taken by @Ellison1997 who clearly laid down the principle of a relative measure (the geographical distribution of an industrial sector is compared to that of the size of the regions where it is considered, a principle summarized under the title of the dartboard approach) and that of the statistical test of the observed distribution against its value under an appropriate null hypothesis: a uniform and independent distribution.
 These features are lacking in earlier concentration indices, such as the Gini index [@Gini1912; @Ceriani2012], whose observed value can only be compared to its possible extremes.
 
 The central statistic of the Ellison and Glaeser index for sector $s$ is, with our notations, $G_s=\sum_i{(p_{i|s} - p_i)^2}$, i.e., the sum of the squares of the deviations between country $i$'s share of the total workforce in sector $s$ and country $i$'s share of the industry, all sectors combined.
-In mathematical terms, $G$ is the distance $L^2$ between the observed distribution of the $s$ sector and its expected distribution [@Haedo2017], that of industry in general.
+In mathematical terms, $G$ is the $L^2$ distance between the observed distribution of the sector $s$ and its expected distribution [@Haedo2017], that of the industry in general.
 
 The relative index of @Theil1967 is sometimes used for the same purpose [@Cutrini2009]: it also measures the gap between the observed and the expected distribution, but with another metric: the Kullback-Leibler divergence.
 
-The HCDT entropy allows to unify and extend these approaches.
-The concentration, absolute and relative, will be considered first.
+HCDT entropy allows to unify and extend these approaches.
+Concentration, absolute and relative, will be considered first.
 Specialization will follow.
 
 
@@ -428,7 +429,7 @@ Valence can be calculated for any level of sectoral grouping, here for the entir
 A valence profile can be plotted for each sector.
 At low orders, the valence gives high importance to countries with low occupancy.
 At $q=0$, the valence is simply the number of countries in which the sector is present.
-At large orders, only majority occupied countries contribute to the valence.
+At large orders, only mostly occupied countries contribute to the valence.
 
 ```{r uC, echo=FALSE, fig.cap="Absolute valence profiles of industry (solid curve, black), the C10 sector (long-dotted line, green) and the C20 sector (short-dotted line, blue)"}
 library("entropart")
@@ -469,7 +470,7 @@ autoplot(cpC) +
   labs(x="Order", y="Absolute Concentration")
 ```
 
-The value of the concentration is the proportion of countries left behind (in effective numbers).
+The value of concentration is the proportion of countries left behind (in effective numbers).
 A value of 0 means that all countries are occupied, a value of 1 that the whole sector is concentrated in one country.
 The chemical industry, C20, is much more concentrated than industry in general, while the food industry, C10, is much less concentrated.
 These results are valid at all orders, except near 0, when the presence of the sector alone counts, regardless of its abundance.
@@ -486,9 +487,9 @@ Using the terminology of the biodiversity decomposition, the absolute valence of
 The decomposition of entropy is the same, but the $\gamma$ entropy is the sum of the entropies $\alpha$ and $\beta$.
 The $\beta$ entropy is, as we have seen, the generalized Jensen-Shannon divergence between the distribution of each sector and the aggregate distribution of the industry.
 At particular orders $q=1$ and $q=2$, this divergence is the average, weighted by the size of sectors, of Theil's relative entropy and Ellison and Glaeser's $G_s$ statistics.
-These classical indices of spatial concentration are generalized Kullback-Leibler divergences, in other words $\beta$ entropies of particular orders, giving different importance to countries with small numbers: the Ellison and Glaeser index, of order 2, takes into account only the dominant establishments
+These classical indices of spatial concentration are generalized Kullback-Leibler divergences, in other words $\beta$ entropies of particular orders, giving different importance to countries with small numbers: the Ellison and Glaeser index, of order 2, takes into account only the dominant establishments.
 
-The $\beta$ entropy measures relative concentration, not relative valence: the $\alpha$ and $\beta$ entropies have fundamentally different properties.
+$\beta$ entropy measures the relative concentration, not the relative valence: the $\alpha$ and $\beta$ entropies have fundamentally different properties.
 It integrates a reference (the distribution of the industry for all sectors) and thus has an expected value, 0, if the distribution of the considered industry is identical to the reference one.
 
 Its value cannot be interpreted simply: one must resort to the effective number of sectors, whose interpretation is intuitive.
@@ -498,15 +499,15 @@ In the framework of the decomposition presented above, the average relative conc
 It must therefore be detailed for each sector: the relative concentration of sector $s$ is defined as the ratio between the absolute valence of the whole industry ($\gamma$) and its own absolute valence:
 $$^{q}C_{s} = ^{q}D(\mathbf{p_{i}}) / ^{q}D(\mathbf{p_{i|s}}).$$
 
-This is an effective number of sectors: if all sectors had a valence equal to the effective number of countries $^{q}D(\mathbf{p_{i|s}})$, it would take $^{q}C_{s}$ to obtain an industry with a valence of $^{q}D(\mathbf{p_{i}})$ effective countries.
+This is an effective number of sectors: if all sectors had a valence equal to the effective number of countries $^{q}D(\mathbf{p_{i|s}})$, it would take $^{q}C_{s}$ sectors to obtain an industry with a valence of $^{q}D(\mathbf{p_{i}})$ effective countries.
 
 The value of the relative concentration can be seen in figure \@ref(fig:uC): it is equal to the ratio between the values of the valence profiles of the industry and the sector considered.
-For the chemical industry (C20), it varies from 1 (at order 0) to `r format(upC$y[which(upC$x==2)]/upC20$y[which(upC20$x==2)], digits=2)` at order 2: `r format(upC$y[which(upC$x==2)]/upC20$y[which(upC20$x==2)], digits=2)` effective valence sectors that of the C20 sector, i.e. `r format(upC20$y[which(upC20$x==2)], digits=2)` countries, would form an industry whose valence would be that observed for the European industry, $`r format(upC20$y[which(upC20$x==2)], digits=2)` ` = `r format(upC$y[which(upC$x==2)], digits=2)`$ effective countries.
+For the chemical industry (C20), it varies from 1 (at order 0) to `r format(upC$y[which(upC$x==2)]/upC20$y[which(upC20$x==2)], digits=2)` at order 2: `r format(upC$y[which(upC$x==2)]/upC20$y[which(upC20$x==2)], digits=2)` effective sectors with the valence of the C20 sector, i.e. `r format(upC20$y[which(upC20$x==2)], digits=2)` countries, would form an industry whose valence would be that observed for the European industry, $`r format(upC20$y[which(upC20$x==2)], digits=2)` ` = `r format(upC$y[which(upC$x==2)], digits=2)`$ effective countries.
 
 The concentration is less than 1 for the food industry (C10): `r format(upC$y[which(upC$x==2)]/upC10$y[which(upC10$x==2)], digits=2)` = `r format(upC$y[which(upC10$x==2)], digits=2)` = `r format(upC$y[which(upC$x==2)], digits=2)` = `r format(upC$y[which(upC10$x==2)]/upC10$y[which(upC10$x==2)]/upC10$y[which(upC10$x==2)].
 In other words, the C10 sector is relatively dispersed.
 
-Relative concentration and absolute valence (figure \@ref(fig:uC)) are related: their product is the absolute valence of the whole of the sectors, taken as a reference.
+Relative concentration and absolute valence (figure \@ref(fig:uC)) are related: their product is the absolute valence of all sectors, taken as a reference.
 Absolute concentration (figure \@ref(fig:cC)) thus goes hand in hand with relative concentration, but the information they provide is different.
 
 In the economic literature, relative entropy has been used to measure relative concentration by @Brulhart2005.
@@ -515,7 +516,7 @@ In the economic literature, relative entropy has been used to measure relative c
 @Alonso-Villar2013 proposed a generalized entropy decomposition but were limited in practice to order 1.
 
 Theil's relative entropy has been used to compare the evolution of spatial concentration over time [e.g., @Cutrini2010] since it does obey an order relation like any entropy.
-Finally, @Bickenbach2013 have combined the Theil index (absolute) and the relative Theil index to better describe spatial concentration by applying them to different economic sectors (industry and services).
+Finally, @Bickenbach2013 have combined the (absolute) Theil index and the relative Theil index to better describe spatial concentration by applying them to different economic sectors (industry and services).
 
 
 
@@ -542,7 +543,7 @@ Diversity is the effective number of equiprobable sectors that would provide the
 As before, the level of aggregation of the data is such that all sectors are represented in all countries: richness, i.e. the diversity of order 0 is equal to the number of sectors.
 All countries are less diverse than Europe: they are therefore all specialized to varying degrees.
 Italy is not very specialized, Germany is more specialized than France, and Iceland is the most specialized country in Europe with less than 5 effective industrial sectors of order 2, three times less than Italy.
-The food industry, C10, employs almost half of the employees working in industry in Iceland.
+The food industry, C10, gathers almost half of the employees of industry in Iceland.
 
 ```{r s, echo=FALSE, fig.cap="Absolute specialization profiles of Europe (solid curve, black), Italy (long-dotted line, green), France (alternating dotted line, orange), Germany (short-dotted line, blue) and Iceland (very-long-dotted line, black)."}
 dMax <- nrow(ES02Cx)
@@ -559,7 +560,7 @@ autoplot(spEurope) +
   labs(x="Order", y="Absolute Specialization")
 ```
 
-Diversity can be transformed into absolute specialization, as valence was into concentration, to obtain the figure \@ref(fig:s).
+Diversity can be transformed into absolute specialization, as valence was into concentration, to obtain figure \@ref(fig:s).
 
 Finally, relative specialization is the ratio between the absolute diversity of the whole of Europe and that of each country, visible in figure \@ref(fig:d).
 Iceland is the most relatively specialized country, with a value at order 2 of `r format(dpEurope$y[which(upC$x==2)]/dpIS$y[which(upC20$x==2)], digits=2)` effective countries.
@@ -590,10 +591,11 @@ The null hypothesis is not rejected at order 0: the specialization of Italy is i
 From order $0.1$, the null hypothesis is rejected: Italy is more specialized than Europe.
 
 The variability of the simulated specialization is extremely low because the numbers are large and the employees are redistributed independently of each other by the multinomial distribution.
-For this reason, @Mori2005, using similar data, choose to test the spatial concentration of establishments by ignoring their employment numbers.
+For this reason, @Mori2005, using similar data, chose to test the spatial concentration of establishments and ignore their number of employees.
 A much better null hypothesis is that establishments are randomly distributed, but with their actual size, which greatly increases the uncertainty about the simulated specialization.
 Individual data on establishments, or at least on their size distribution, are needed to go further.
-With the data available here, all the profiles presented in figures \@ref(fig:uC) through \@ref(fig:s) are significantly different from each other as early as order $0.1$.
+With the data available here, all the profiles presented in figures \@ref(fig:uC) through \@ref(fig:s) are significantly different from each other from order $0.1$ up.
+
 
 
 # Joint Diversity
@@ -604,7 +606,6 @@ To preserve the properties of the decomposition, diversity and valence will not 
 @Cutrini2010 called the mutual information of the contingency table the relative concentration of the sectors, equal to the relative specialization of the regions measured by the Kullback-Leibler divergence (Theil's relative index).
 This is only part of the information provided by the data, $\beta$ diversity or valence, and this approach is only valid at order 1.
 Joint diversity exploits all the information by combining $\alpha$ and $\beta$ diversity or valence (together forming $\gamma$ diversity) and replication.
-
 
 
 ## Diversity (specialization) of countries
@@ -626,13 +627,13 @@ autoplot(Djointe) +
 ```
 
 The joint diversity is decomposed into the product of $\alpha$ diversity, the effective number of industry sectors per country, $\beta$ diversity, the effective number of countries, and replication, the number of replicas of these effective countries.
-$\gamma$ diversity  the product of $\alpha$ and $\beta$, is that of Europe.
-The decomposition is valid at all orders of diversity, and presented in the form of profiles (figure \@ref(fig:dd)).
+$\gamma$ diversity, the product of $\alpha$ and $\beta$, is that of Europe.
+The decomposition is valid at all orders of diversity, and presented as profiles (figure \@ref(fig:dd)).
 
-The profiles are plotted on a logarithmic scale because the values are of different orders of magnitude and also because the multiplicative decomposition becomes additive in this form: the height of the diversity joined on the figure is the sum of the heights of the $alpha$ and $beta$ diversities and of the replication.
+The profiles are plotted on a logarithmic scale because the values are of different orders of magnitude and also because the multiplicative decomposition becomes additive in this form: the height of the joint diversity on the figure is the sum of the heights of $alpha$ and $beta$ diversities and of replication.
 
 The diversity of Europe ($\gamma$, green curve) has already been presented in figure \@ref(fig:cC).
-It is very close to the $\alpha$, intra-country diversity (blue curve): the effective number of countries ($\beta$, relative specialization, red curve) varies from 1 (at order 0) to `r format(dpES02CMC$TotalBetaDiversity[which(dpES02CMC$Order==2)], digits=2)` at order 2.
+It is very close to the $\alpha$, within-country diversity (blue curve): the effective number of countries ($\beta$, relative specialization, red curve) varies from 1 (at order 0) to `r format(dpES02CMC$TotalBetaDiversity[which(dpES02CMC$Order==2)], digits=2)` at order 2.
 This value is very small: the maximum possible is the number of countries, `r ncol(ES02Cx)`, if they do not share any sectors; in fact only `r nrow(ES02Cx)` because the number of sectors here is less than the number of countries.
 The countries thus have a certain level of absolute specialization, but it is identical to that of the whole of Europe: their relative specialization is very low.
 Relative specialization increases with the order considered, i.e. by progressively neglecting the smallest sectors: the countries are a little more different from each other when considering only the most important sectors.
@@ -663,6 +664,7 @@ The results are similar to those for specialization.
 The sectors are concentrated in absolute terms, but their relative concentration is very low and replication is high.
 
 This large replication of countries and sectors shows that at this level of data aggregation, European industry has little variation in structure between countries or sectors.
+
 
 # Conclusion
 
